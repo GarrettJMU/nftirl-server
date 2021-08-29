@@ -19,8 +19,9 @@ class UsersController < ApplicationController
     address = params[:address]
     collections = params[:address]
 
-
-    return json: {}, status: :ok if collections.blank?
+    if collections.blank?
+      return render json: {}, status: :ok
+    end
 
     if address.blank?
       return render json: { error: "missing address" }, status: 400
@@ -31,7 +32,6 @@ class UsersController < ApplicationController
     unless user
       user = User.create!(address: address)
     end
-
 
   end
 

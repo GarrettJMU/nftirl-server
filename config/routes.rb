@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/cities', to: 'locations#cities'
 
   post '/users', to: 'users#create'
+  post '/users/collections', to: 'users#collections'
 end

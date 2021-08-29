@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_205229) do
+ActiveRecord::Schema.define(version: 2021_08_29_223222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2021_08_29_205229) do
     t.index ["city"], name: "index_cities_on_city"
     t.index ["countries_id"], name: "index_cities_on_countries_id"
     t.index ["country"], name: "index_cities_on_country"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "countries", force: :cascade do |t|

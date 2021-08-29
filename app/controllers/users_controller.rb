@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user = User.find_by_address(address)
 
     unless user
-      user = User.create!(address)
+      user = User.create!(address: address)
     end
 
     render json: { user: user }

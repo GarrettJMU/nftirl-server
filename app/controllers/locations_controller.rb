@@ -12,4 +12,14 @@ class LocationsController < ApplicationController
 
     render json: {cities: results}, status: :ok
   end
+
+  def cities
+    results = []
+
+    if params[:q]
+      results = City.where(city: params[:q]).select(:city, :country, :admin_name, :lat, :lng)
+    end
+
+    render json: {cities: results}, status: :ok
+  end
 end
